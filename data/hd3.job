@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --job-name=test
+#SBATCH --output=test1.out
+#SBATCH --error=test1.err
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=80
+#SBATCH -p short 
+#SBATCH --exclude node011
+
+source /trinity/login/xxu/software/annconda3/bin/activate
+source /trinity/login/xxu/software/annconda3/etc/profile.d/conda.sh 
+
+conda activate hd3_test
+
+haddock3  /trinity/login/xxu/ab_tutorial_test2/HADDOCK-Antibody/data/scenario1.cfg 
